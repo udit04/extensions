@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "Gold Prices in India",
+    "version": "1.0.0",
+    "description": "See live gold price in india obtaiend from various sites",
+    "permissions": [
+        "https://paytm.com/",
+        "https://mywealth.adityabirlacapital.com/"
+    ],
+    "browser_action" : {
+        "default_icon" : "images/gold_32.png",
+        "default_popup": "index.html"
+    },
+    "icons": {
+        "16": "images/gold_16.png",
+        "32": "images/gold_32.png",
+        "128": "images/gold_128.png",
+        "256": "images/gold_256.png"
+    }
+}
