@@ -1,14 +1,10 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    font-family: "Montserrat";
     color: white;
     font-size: large;
   }
-  html, body {
-    min-height: 100%;
-  }
+
   body {
     background: radial-gradient(at top left, rgba(146,43,225,1) 0%, rgba(43,9,107,1) 100%);
     background-repeat: no-repeat;
@@ -16,28 +12,34 @@
     width: 300px;
   }
 
-    .buy {
-        color:yellowgreen;
-        font-weight: bold;
-    }
-    .sell {
-        color: red;
-        font-weight: bold;
-    }
+  .buy {
+    color:yellowgreen;
+    font-weight: bold;
+  }
+  .sell {
+    color: red;
+    font-weight: bold;
+  }
 
-    .merchant {
-        font-size: 16px;
-        color:powderblue;
-    }
+  .merchant {
+    font-size: 16px;
+    color:powderblue;
+  }
 
-    .loading {
-        color: black;
-    }
+  .disclaimer {
+    font-size: 14px;
+    color: black;
+    display: none;
+  }
 
-    .disclaimer {
-        font-size: 14px;
-        color: black;
-    }
+  .loading {
+    margin-left: -40px;
+    display: flex;
+  }
+
+  .result-container {
+    display: none;
+  }
 
   p {
     margin: 16px auto;

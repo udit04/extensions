@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Gold Prices in India",
+    "name": "Gold Prices in India,",
     "version": "1.0.0",
-    "description": "See live gold price in india obtaiend from various sites",
+    "description": "See live gold price in India, gold sell price, gold buy price",
     "permissions": [
         "https://paytm.com/",
         "https://mywealth.adityabirlacapital.com/"

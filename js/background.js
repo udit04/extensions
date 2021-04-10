@@ -10,9 +10,8 @@ const sell = document.querySelector(".sell");
 const merchant = document.querySelector(".merchant");
 const results = document.querySelector(".result-container");
 const disclaimer = document.querySelector(".disclaimer");
-results.style.display = "none";
-loading.style.display = "block";
-disclaimer.style.display = 'none';
+
+const default_merchant = "MMTC-PAMP";
 
 const fetchGoldPriceFromPaytm = async () => {
     fetch(paytm_api_url)
@@ -48,7 +47,7 @@ const fetchBuySellFromAditya = ()=>{
             setDisplayData({
                 buy_amount : outputs[0].response.data.BeforeTaxAmt,
                 sell_amount : outputs[1].response.data.BeforeTaxAmt,
-                merchant : "MMTC-PAMP"
+                merchant : default_merchant
             })
         }
     })
@@ -66,7 +65,3 @@ const setDisplayData = (info)=>{
 }
 
 Math.random() < 0.5 ? fetchGoldPriceFromPaytm() : fetchBuySellFromAditya();
-
-//fetchGoldPriceFromPaytm();
-//fetchBuySellFromAditya();
-
