@@ -10,8 +10,17 @@ const sell = document.querySelector(".sell");
 const merchant = document.querySelector(".merchant");
 const results = document.querySelector(".result-container");
 const disclaimer = document.querySelector(".disclaimer");
+const subscribe = document.querySelector(".subscribe");
+const unsubscribe = document.querySelector(".unsubscribe");
+const subscription_success = document.querySelector(".subscription_success");
 
 const default_merchant = "MMTC-PAMP";
+
+if(localStorage.getItem('goldtimer')){
+    unsubscribe.style.display = 'inline';
+    subscribe.style.display = 'none';
+}
+
 const fetchGoldPriceFromPaytm = async () => {
     fetch(paytm_api_url)
     .then(response => response.json()) 
@@ -61,6 +70,32 @@ const setDisplayData = (info)=>{
     sell.textContent = info.sell_amount;
     merchant.textContent = info.merchant + " GOLD";
     results.style.display = "block";
+}
+
+subscribe.onclick = ()=>{
+    chrome.runtime.sendMessage('', {
+        type: 'subscribe'
+    });
+    unsubscribe.style.display = 'inline';
+    subscribe.style.display = 'none';
+    subscription_success.style.display = 'block';
+    subscription_success.textContent = 'Subscribed successfully';
+    setTimeout(() => {
+        subscription_success.style.display =  'none';        
+    }, 2000);
+}
+
+unsubscribe.onclick = ()=>{
+    chrome.runtime.sendMessage('', {
+        type: 'unsubscribe'
+    });
+    unsubscribe.style.display = 'none';
+    subscribe.style.display = 'inline';
+    subscription_success.style.display = 'block';
+    subscription_success.textContent = 'Unsubscribed successfully';
+    setTimeout(() => {
+        subscription_success.style.display =  'none';        
+    }, 2000);
 }
 
 Math.random() < 0.5 ? fetchGoldPriceFromPaytm() : fetchBuySellFromAditya();

@@ -41,6 +41,37 @@
     display: none;
   }
 
+  .metadata {
+    display: flex;
+  }
+
+  .buynow {
+    background-color:green;
+    color: black;
+  }
+
+  .subscribe {
+    color:black;
+    background-color:slategrey;
+  }
+
+  .unsubscribe {
+    color:black;
+    background-color: red;
+    display: none;
+  }
+
+  .btn {
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .subscription_success {
+    display: none;
+  }
+
   p {
     margin: 16px auto;
     line-height: 1.5em;
