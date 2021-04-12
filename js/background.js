@@ -57,7 +57,7 @@ try {
         .catch(err => console.log(err));
     }; 
 } catch (error) {
-    timer = localStorage && localStorage.getItem('goldtimer');
+    timer = timer || (localStorage && localStorage.getItem('goldtimer'));
     if(timer) {
         clearInterval(timer);
     }
