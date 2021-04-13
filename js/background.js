@@ -49,7 +49,7 @@ try {
             const response = json;
             chrome.notifications.create('', {
                 title: `Latest Gold Price by ${response.portfolio.product_level[0].merchant.name}`,
-                message: `Buy Price : ${response.portfolio.product_level[0].price_per_gm}, Sell Price : ${response.portfolio.product_level[0].sell_price_per_gm}`,
+                message: `Buy Price : ${response.portfolio.product_level[0].price_per_gm}/g, Sell Price : ${response.portfolio.product_level[0].sell_price_per_gm}/g`,
                 type: 'basic',
                 iconUrl: '/images/gold_32.png'
             });

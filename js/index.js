@@ -66,8 +66,8 @@ const setDisplayData = (info)=>{
     loading.style.display = "block";
     disclaimer.style.display = 'block';
     loading.style.display = "none";
-    buy.textContent = info.buy_amount;
-    sell.textContent = info.sell_amount;
+    buy.textContent = info.buy_amount+'/g';
+    sell.textContent = info.sell_amount+'/g';
     merchant.textContent = info.merchant + " GOLD";
     results.style.display = "block";
 }
