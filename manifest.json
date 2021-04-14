@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Gold Prices in India",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "description": "See live gold price in India, gold sell price, gold buy price",
     "permissions": [
         "https://paytm.com/",

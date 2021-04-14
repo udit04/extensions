@@ -13,6 +13,7 @@ const disclaimer = document.querySelector(".disclaimer");
 const subscribe = document.querySelector(".subscribe");
 const unsubscribe = document.querySelector(".unsubscribe");
 const subscription_success = document.querySelector(".subscription_success");
+const support = document.querySelector(".support");
 
 const default_merchant = "MMTC-PAMP";
 
@@ -68,8 +69,9 @@ const setDisplayData = (info)=>{
     loading.style.display = "none";
     buy.textContent = info.buy_amount+'/g';
     sell.textContent = info.sell_amount+'/g';
-    merchant.textContent = info.merchant + " GOLD";
+    merchant.textContent = info.merchant + " GOLD - 24K";
     results.style.display = "block";
+    support.style.display = "flex";
 }
 
 subscribe.onclick = ()=>{

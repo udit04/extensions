@@ -26,12 +26,6 @@
     color:powderblue;
   }
 
-  .disclaimer {
-    font-size: 14px;
-    color:white;
-    display: none;
-  }
-
   .loading {
     margin-left: -40px;
     display: flex;
@@ -72,7 +66,18 @@
     display: none;
   }
 
+  .support {
+    display: none;
+  }
+
+  .disclaimer {
+    font-size: 14px;
+    color:white;
+    display: none;
+    margin-top: 20px;
+  }
+
   p {
-    margin: 16px auto;
+    margin: 12px auto 12px 8px;
     line-height: 1.5em;
   }
