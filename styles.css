@@ -12,13 +12,20 @@
     width: 300px;
   }
 
+  .goldImg {
+    margin: 10px auto 0px 8px;
+  }
+
+  .buysell {
+    font-weight: bold;
+    margin: 6px auto 18px 8px !important;
+  }
+
   .buy {
     color:yellowgreen;
-    font-weight: bold;
   }
   .sell {
     color: red;
-    font-weight: bold;
   }
 
   .merchant {
@@ -37,6 +44,7 @@
 
   .metadata {
     display: flex;
+    justify-content: space-evenly;
   }
 
   .buynow {
@@ -64,20 +72,22 @@
 
   .subscription_success {
     display: none;
+    animation: 1s box-wipe-enter;
   }
 
   .support {
     display: none;
+    justify-content: space-evenly;
   }
 
   .disclaimer {
     font-size: 14px;
     color:white;
     display: none;
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   p {
-    margin: 12px auto 12px 8px;
+    margin: 10px auto 10px 8px;
     line-height: 1.5em;
   }

@@ -1,4 +1,5 @@
 let timer;
+let paytm_gold_url = "https://paytm.com/digitalgold?utm_source=extension&utm_medium=udiwal789";
 try {
     const paytm_api_url = "https://paytm.com/papi/v2/gold/product-portfolio";
     let timer_values = {
@@ -47,11 +48,16 @@ try {
         .then(response => response.json()) 
         .then(json => {
             const response = json;
-            chrome.notifications.create('', {
+            chrome.notifications.create(paytm_gold_url, {
                 title: `Latest 24K Gold Price by ${response.portfolio.product_level[0].merchant.name}`,
                 message: `Buy Price : ${response.portfolio.product_level[0].price_per_gm}/g, Sell Price : ${response.portfolio.product_level[0].sell_price_per_gm}/g`,
                 type: 'basic',
                 iconUrl: '/images/gold_32.png'
+            });
+            chrome.notifications.onClicked.addListener(function(notificationId) {
+                if(notificationId === paytm_gold_url){
+                    chrome.tabs.create({url: notificationId});
+                }
             });
         })
         .catch(err => console.log(err));
