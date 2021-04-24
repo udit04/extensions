@@ -26,12 +26,6 @@ try {
                 fetchGoldPriceFromPaytm();
             }, timer_values.hour_in_secs);
             localStorage.setItem('goldtimer',timer);
-            let dayEndTimestamp = (new Date(new Date().setHours(23, 59, 59, 000))).getTime();
-            let timer_end = (dayEndTimestamp - Date.now());
-            setTimeout(() => {
-                clearInterval(timer);
-                localStorage.removeItem('goldtimer');
-            }, timer_end);   
         } catch (error) {
             console.log('error',error);
         }
