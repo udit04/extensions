@@ -4,6 +4,7 @@ try {
     const paytm_api_url = "https://paytm.com/papi/v2/gold/product-portfolio";
     let timer_values = {
         hour_in_secs : 60 * 60 * 1000,
+        half_hour_in_secs : 30 * 60 * 1000,
         min_in_secs : 60 * 1000,
         one_day_in_secs : 24 * 60 * 60 * 1000,
         every_two_seconds : 2 * 1000
@@ -24,7 +25,7 @@ try {
             }
             timer = setInterval(() => {
                 fetchGoldPriceFromPaytm();
-            }, timer_values.hour_in_secs);
+            }, timer_values.half_hour_in_secs);
             localStorage.setItem('goldtimer',timer);
         } catch (error) {
             console.log('error',error);
