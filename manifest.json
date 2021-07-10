@@ -4,8 +4,6 @@
     "version": "1.7.0",
     "description": "View live gold prices in India, gold sell price, gold buy price, buy 24K gold, sell 24k gold, subscribe to updates every 30 mins",
     "permissions": [
-        "https://paytm.com/",
-        "https://www.motilaloswal.com/",
         "storage",
         "notifications"
     ],
