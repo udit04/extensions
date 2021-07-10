@@ -4,6 +4,8 @@ const aditya_api_url = {
     sell : "https://mywealth.adityabirlacapital.com/digital-gold/GetRateToSell"
 } 
 
+const motilal_oswal_url = "https://www.motilaloswal.com/marketapi/index.php/investpage/megold/rates";
+
 const loading = document.querySelector(".loading");
 const buy = document.querySelector(".buy");
 const sell = document.querySelector(".sell");
@@ -63,6 +65,20 @@ const fetchBuySellFromAditya = ()=>{
     .catch(err=>console.log(err));
 }
 
+const fetchGoldPriceFromMotilal = async () => {
+    fetch(motilal_oswal_url)
+    .then(response => response.json()) 
+    .then(json => {
+        const response = json;
+        setDisplayData({
+            buy_amount : response.buy,
+            sell_amount : response.sell,
+            merchant : default_merchant
+        })
+    })
+    .catch(err => console.log(err));
+};
+
 const setDisplayData = (info)=>{
     loading.style.display = "block";
     disclaimer.style.display = 'block';
@@ -100,4 +116,4 @@ unsubscribe.onclick = ()=>{
     }, 2000);
 }
 
-Math.random() < 0.5 ? fetchGoldPriceFromPaytm() : fetchBuySellFromAditya();
+Math.random() < 0.5 ? fetchGoldPriceFromPaytm() : fetchGoldPriceFromMotilal();

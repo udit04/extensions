@@ -1,5 +1,4 @@
 let timer;
-let paytm_gold_url = "https://paytm.com/digitalgold?utm_source=extension&utm_medium=udiwal789";
 try {
     const paytm_api_url = "https://paytm.com/papi/v2/gold/product-portfolio";
     let timer_values = {
@@ -7,7 +6,7 @@ try {
         half_hour_in_secs : 30 * 60 * 1000,
         min_in_secs : 60 * 1000,
         one_day_in_secs : 24 * 60 * 60 * 1000,
-        every_two_seconds : 2 * 1000
+        every_five_seconds : 5 * 1000
     };
     chrome.runtime.onMessage.addListener(data => {
         if (data.type === 'subscribe') {
@@ -43,17 +42,16 @@ try {
         .then(response => response.json()) 
         .then(json => {
             const response = json;
-            chrome.notifications.create(paytm_gold_url, {
+            const notificationId = "gold_" + Math.random();
+            chrome.notifications.create(notificationId, {
                 title: `Latest 24K Gold Price by ${response.portfolio.product_level[0].merchant.name}`,
                 message: `Buy Price : ${response.portfolio.product_level[0].price_per_gm}/g, Sell Price : ${response.portfolio.product_level[0].sell_price_per_gm}/g`,
                 type: 'basic',
                 iconUrl: '/images/gold_32.png'
             });
-            chrome.notifications.onClicked.addListener(function(notificationId) {
-                if(notificationId === paytm_gold_url){
-                    chrome.tabs.create({url: notificationId});
-                }
-            });
+            setTimeout(()=> {
+                chrome.notifications.clear(notificationId, wasCleared=>{});
+            }, 2000);
         })
         .catch(err => console.log(err));
     }; 
