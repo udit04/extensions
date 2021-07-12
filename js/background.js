@@ -1,6 +1,8 @@
 let timer;
 try {
     const paytm_api_url = "https://paytm.com/papi/v2/gold/product-portfolio";
+    const motilal_oswal_url = "https://www.motilaloswal.com/marketapi/index.php/investpage/megold/rates";
+    const default_merchant = "MMTC-PAMP";
     let timer_values = {
         hour_in_secs : 60 * 60 * 1000,
         half_hour_in_secs : 30 * 60 * 1000,
@@ -23,7 +25,7 @@ try {
                 clearInterval(timer);
             }
             timer = setInterval(() => {
-                fetchGoldPriceFromPaytm();
+                fetchGoldPriceFromMotilal();
             }, timer_values.half_hour_in_secs);
             localStorage.setItem('goldtimer',timer);
         } catch (error) {
@@ -55,6 +57,26 @@ try {
         })
         .catch(err => console.log(err));
     }; 
+
+    const fetchGoldPriceFromMotilal = async () => {
+        fetch(motilal_oswal_url)
+        .then(response => response.json()) 
+        .then(json => {
+            const response = json;
+            const notificationId = "gold_" + Math.random();
+            chrome.notifications.create(notificationId, {
+                title: `Latest 24K Gold Price by ${default_merchant}`,
+                message: `Buy Price : ${response.buy}/g, Sell Price : ${response.sell}/g`,
+                type: 'basic',
+                iconUrl: '/images/gold_32.png'
+            });
+            setTimeout(()=> {
+                chrome.notifications.clear(notificationId, wasCleared=>{});
+            }, 3000);
+        })
+        .catch(err => console.log(err));
+    };
+
 } catch (error) {
     timer = timer || (localStorage && localStorage.getItem('goldtimer'));
     if(timer) {

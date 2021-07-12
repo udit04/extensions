@@ -116,4 +116,5 @@ unsubscribe.onclick = ()=>{
     }, 2000);
 }
 
-Math.random() < 0.5 ? fetchGoldPriceFromPaytm() : fetchGoldPriceFromMotilal();
+// Math.random() < 0.5 ? fetchGoldPriceFromPaytm() :
+ fetchGoldPriceFromMotilal();
